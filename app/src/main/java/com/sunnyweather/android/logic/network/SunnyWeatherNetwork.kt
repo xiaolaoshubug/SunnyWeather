@@ -19,6 +19,18 @@ object SunnyWeatherNetwork {
     //  创建 PlaceService 代理对象
     private val placeService = ServiceCreator.create<PlaceService>()
 
+    //  创建 WeatherService 代理对象
+    private val weatherService = ServiceCreator.create<WeatherService>()
+
+    //  通过经纬度查询每日天气
+    suspend fun getDailyWeather(lng: String, lat: String) =
+        weatherService.getDailyWeather(lng, lat).await()
+
+    //  通过经纬度查询实时天气
+    suspend fun getRealtimeWeather(lng: String, lat: String) =
+        weatherService.getRealtimeWeather(lng, lat).await()
+
+    //  通过地名查询
     //  使用协程来简化网络请求
     //  调用searchPlaces时当前的协程也会被阻塞住
     //  直到服务器响应我们的请求之后，await()函数会将解析出来的数据模型对象取出并返回，
