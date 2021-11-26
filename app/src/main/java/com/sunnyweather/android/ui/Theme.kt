@@ -12,6 +12,7 @@ import android.content.res.Configuration
  * xor关键字对应了Java中的^运算符
  * and关键字其实就对应了Java中的&运算符
  * 这是分支测试代码
+ * 这是分支提交的代码，用于测试输出
  **/
 fun isDarkTheme(context: Context): Boolean {
     val flag = context.resources.configuration.uiMode and
